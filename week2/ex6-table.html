@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //입력받은 수의 사이즈로 테이블을 만들어 주세요
+    let colrow = prompt("몇 칸으로 테이블을 만들어볼까요?");
+    colrow = parseInt(colrow);
+
+
+    document.write("<table border='1'>");
+    //입력받은 수 colrow x colrow 테이블을 만들어주세요
+    //ex 5입력 5 x 5 (tr:행, td: 열)
+    // tip. 태그는 계층형이기 때문에 tr안에 포함시키려면 <tr>열고 <td></td> 작성후 </tr>을 닫아 줘야함 
+    for(let i = 1; i <= colrow; i++){
+        document.write("<tr>");
+            for(let j = 1 ; j <= colrow; j++){
+                document.write("<td>" + i +"x" +j + "</td>");
+            }
+        document.write("</tr>");
+    }
+    
+    document.write("</table");
+    </script>
+</body>
+</html>
