@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼을 클릭하면 이미지가 바뀌는...</title>
+    <style>
+        #container{width: 60%; margin: 20px auto; text-align: center;}
+        img {width: 60%; height: 60%;}
+        p {background-color: black; color: white;}
+        strong {color: yellow;}
+        button{position: relative; font-size: 50px; bottom: 450px}
+    </style>
+    <script>
+        let files = ["./img/1.PNG","./img/2.PNG","./img/3.PNG","./img/4.PNG","./img/5.PNG","./img/6.PNG","./img/7.PNG","./img/8.PNG"];
+        let idx = 0;
+        let obj;
+        let imgs = [];
+            for(let i = 0; i < files.length; i++){
+                imgs[i] = new Image(); //이미지 객체 생성
+                imgs[i].src = files[i]; //이미지 로딩
+            }
+        window.onload = function(){
+                obj = document.getElementById("img_id");       
+        }
+                function fn_left(){
+          // 작아지게 (0까지 작아졌다면 이미지의 마지막 인덱스로)
+        
+        if(idx == 0){
+            idx = imgs.length -1;
+        }else{
+            idx--;
+        }        
+        obj.src = imgs[idx].src;
+        }
+        function fn_right(){
+          //커지게 (이미지의 최대 수량까지 증가했다면 -> 0으로)
+     
+        if(idx == imgs.length -1){
+            idx = 0;
+        }else{
+            idx++;
+        }
+        obj.src = imgs[idx].src;
+
+        }
+ 
+            //미리 로딩해둘 이미지
+           
+
+            
+      
+        </script>
+</head>
+<body>
+    <div id="container">
+        <h1>영화 소개</h1>
+        <p>열길 물속은 알아도 한길 사람 속은 모른다!  
+
+            평화롭던 바닷가 마을 군천에 화학 공장이 들어서면서 하루아침에 일자리를 잃은 해녀들.
+            먹고 살기 위한 방법을 찾던 승부사 '춘자'(김혜수)는
+            바다 속에 던진 물건을 건져 올리기만 하면 큰돈을 벌 수 있다는
+            밀수의 세계를 알게 되고 해녀들의 리더 '진숙'(염정아)에게 솔깃한 제안을 한다.
+            위험한 일임을 알면서도 생계를 위해 과감히 결단을 내린 해녀 '진숙'은
+            전국구 밀수왕 '권 상사'를 만나게 되면서 확 커진 밀수판에 본격적으로 빠지게 된다.
+            그러던 어느 날, 일확천금을 얻을 수 있는 일생일대의 기회가 찾아오고
+            사람들은 서로를 속고 속이며 거대한 밀수판 속으로 휩쓸려 들어가기 시작하는데... 
+            
+            물길을 아는 자가 돈길의 주인이 된다!</p>
+        <p>김혜수, 염정아, 조인성, 박정민, 김종수, 고민시 
+            드디어 만났다!
+            믿고 보는 배우들의 신선한 조합!</p>
+        <div>
+            <button id="left" onclick="fn_left()">&lt;</button>
+            <img src="./img/1.PNG" id="img_id" alt="">
+            <button id = "right" onclick="fn_right()">&gt;</button>
+        </div>
+    </div>
+</body>
+</html>
