@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #logoDiv{display: none; position: absolute; left: 0; top: 0;}
+    </style>
+    <title>onbeforeprint</title>
+    <script>
+        function hideLogo(){
+            logDiv = document.getElementById('logoDiv');
+            logDiv.style.display = 'none';
+            logDiv.style.zIndex= -1;
+        }
+        window.onafterprint = hideLogo;
+        window.onbeforeprint = function(){
+            alert("hi");
+            logoDiv = document.getElementById('logoDiv');
+            console.log(logoDiv);
+            logoDiv.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h3>onbeforeprint, onafterprint 이벤트</h3>
+    <hr>
+    <div id="logoDiv">
+<img src="/day15/img/mar.png" alt="">
+    </div>
+</body>
+</html>
